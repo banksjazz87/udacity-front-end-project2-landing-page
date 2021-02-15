@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    width: 100vw;
+    background-color: #00050a;
+}
+
+header {
+    background-image: url("../../assets/photos/Background-Image.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    margin: 0;
+    margin-left: 0;
+    width: 100vw;
+    position: fixed;
+    background-color: black;
+    justify-content: space-between;
+}
+
+.hamburger {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0 6px 0;
+    margin-left: 1em;
+}
+
+#logo img {
+    float: right;
+}
+
+#nav-links {
+    display: none;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#nav-links a:hover {
+    color: orange;
+}
+
+#nav-links a:active {
+    color: orange;
+}
+
+#intro-text {
+    text-align: center;
+    color: white;
+}
+
+#intro-text h2 {
+    margin-top: 0;
+    padding-top: 40vh;
+    font-size: 3em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#intro-text h3 {
+    line-height: 1.5em;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trumpet-pic {
+    border-radius: 2%;
+    box-shadow: 4px 8px black;
+}
+
+.trumpets {
+    display: flex;
+    flex-direction: column;
+    height: 750px;
+    width: 25%;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    background-color: #708D81;
+    justify-content: space-between;
+    border-radius: 2%;
+}
+
+.trumpets p {
+    line-height: 1.15em;
+}
+
+.trumpet-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.buy {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding: 1em 2em 1em 2em;
+    background-color: #F4D58D;
+    border-radius: 2%;
+    box-shadow: 1px 2px black;
+}
+
+.buy:hover {
+    background-image: radial-gradient(rgb(175, 173, 173), black);
+    color: #F4D58D;
+    box-shadow: 2px 4px black;
+}
+
+.buy:active {
+    background-color: rgb(175, 173, 173);
+    color: purple;
+    box-shadow: 2px 4px black;
+}
+
+.trumpet-type {
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 2em;
+}
+
+footer {
+    width: 100vw;
+    height: 5em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 2em;
+}
+
+.social-image {
+    height: 2em;
+    width: 2em;
+    margin-left: .25em;
+    margin-right: .25em;
+}
+
+#social-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    width: 10em;
+    padding: .25em 0 .25em 0;
+    justify-content: center;
+    margin: auto;
+}
