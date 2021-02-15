@@ -91,7 +91,10 @@ nav {
     padding-right: 2em;
     padding-top: 1em;
     padding-bottom: 2em;
-    background-color: #708D81;
+    /* background-color: #708D81;*/
+    background-image: radial-gradient(#9A54B3, #342380);
+    color: white;
+    text-shadow: 1px 2px black;
     justify-content: space-between;
     border-radius: 2%;
 }
@@ -113,9 +116,13 @@ nav {
     color: black;
     text-align: center;
     padding: 1em 2em 1em 2em;
-    background-color: #F4D58D;
+    margin-bottom: 1em;
+    /*background-color: #F4D58D;*/
+    background-color: #ce5e74;
+    background-image: radial-gradient(#ce5e74, #e7788e);
     border-radius: 2%;
     box-shadow: 1px 2px black;
+    text-shadow: none;
 }
 
 .buy:hover {
@@ -153,6 +160,15 @@ footer {
     width: 2em;
     margin-left: .25em;
     margin-right: .25em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+}
+
+.social-link :hover {
+    border-style: solid;
+    border-color: black;
+    border-width: .05em;
+    border-radius: 25%;
 }
 
 #social-container {
@@ -164,4 +180,5 @@ footer {
     padding: .25em 0 .25em 0;
     justify-content: center;
     margin: auto;
+    border-radius: 10%;
 }
