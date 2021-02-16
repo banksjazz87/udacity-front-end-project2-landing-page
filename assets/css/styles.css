@@ -91,7 +91,6 @@
         padding-right: 2em;
         padding-top: 1em;
         padding-bottom: 2em;
-        /* background-color: #708D81;*/
         background-image: radial-gradient(#9A54B3, #342380);
         color: white;
         text-shadow: 1px 2px black;
@@ -117,7 +116,6 @@
         text-align: center;
         padding: 1em 2em 1em 2em;
         margin-bottom: 1em;
-        /*background-color: #F4D58D;*/
         background-color: #ce5e74;
         background-image: radial-gradient(#ce5e74, #e7788e);
         border-radius: 2%;
@@ -182,4 +180,23 @@
         justify-content: center;
         margin: auto;
         border-radius: 10%;
+    }
+    
+    @media only screen and (max-width: 800px) {
+        .trumpet-pic {
+            width: 20em;
+            height: 20em;
+            margin: auto;
+        }
+        .trumpets {
+            width: 70%;
+            height: 10%;
+            margin-bottom: 2em;
+        }
+        .trumpet-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
