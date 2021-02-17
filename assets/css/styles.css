@@ -27,6 +27,11 @@
         justify-content: space-between;
     }
     
+    #menu-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
     .hamburger {
         width: 35px;
         height: 5px;
@@ -41,6 +46,14 @@
     
     #nav-links {
         display: none;
+        flex-direction: column;
+        background-color: rgb(165, 161, 161);
+        width: 20vw;
+        padding: 3em;
+    }
+    
+    .links {
+        list-style: none;
     }
     
     #nav-links a {
