@@ -5,21 +5,27 @@ const menu = document.getElementById("hamburger-container");
 const links = document.getElementById('nav-links');
 const nav = document.getElementById('navbar');
 
-let increment = null;
-let stop = clearInterval(increment);
 let i = 0;
+let increment = () => {
+    i++
+    console.log(i);
+}
+
+/*let stop = clearInterval(increment);
+let start = setInterval(increment, 1000);
+
+
 
 menu.addEventListener('click', () => {
-    if (links.style.display === 'none') {
-        links.style.display = 'flex';
-        increment = setInterval(() => {
-            i++;
-            console.log(i);
-        }, 1000);
+    //let start = setInterval(increment, 100);
 
+    if (links.style.display === 'none') {
+        links.style.display = "flex";
+        start;
     } else {
         links.style.display = 'none';
-        stop;
+        //clearInterval(increment);
         i = 0;
+        stop;
     }
 });
