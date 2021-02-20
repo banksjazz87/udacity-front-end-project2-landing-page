@@ -6,26 +6,21 @@ const links = document.getElementById('nav-links');
 const nav = document.getElementById('navbar');
 
 let i = 0;
-let increment = () => {
-    i++
-    console.log(i);
-}
-
-/*let stop = clearInterval(increment);
-let start = setInterval(increment, 1000);
-
-
 
 menu.addEventListener('click', () => {
-    //let start = setInterval(increment, 100);
+    const increment = setInterval(() => {
+        if (i < 100 && links.style.display === 'flex') {
+            i++;
+            links.style.height = i + 'vh';
+        } else {
+            clearInterval(increment);
+        }
+    }, 1);
 
     if (links.style.display === 'none') {
-        links.style.display = "flex";
-        start;
+        links.style = "display: flex; height: 0vh";
     } else {
         links.style.display = 'none';
-        //clearInterval(increment);
         i = 0;
-        stop;
     }
 });
