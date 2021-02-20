@@ -8,19 +8,21 @@ const nav = document.getElementById('navbar');
 let i = 0;
 
 menu.addEventListener('click', () => {
-    const increment = setInterval(() => {
+    const downIncrement = setInterval(() => {
         if (i < 100 && links.style.display === 'flex') {
             i++;
             links.style.height = i + 'vh';
         } else {
-            clearInterval(increment);
+            clearInterval(downIncrement);
         }
-    }, 1);
+    }, 10);
 
     if (links.style.display === 'none') {
         links.style = "display: flex; height: 0vh";
     } else {
-        links.style.display = 'none';
-        i = 0;
+        setTimeout(() => {
+            links.style.display = 'none';
+            i = 0;
+        }, 300);
     }
 });
