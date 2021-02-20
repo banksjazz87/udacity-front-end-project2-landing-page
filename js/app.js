@@ -38,13 +38,14 @@ links.addEventListener('click', () => {
 
 //code pertaining to the scroll feature after clicking on a link
 
-const bod = document.querySelector('body');
+const anchors = document.querySelectorAll('.link-anchor');
 
-const test = document.getElementById('pro');
 
-console.log(test.getBoundingClientRect);
-
-/*bod.addEventListener('mousemove', (event) => {
-    console.log(event.screenY);
-    console.log(event.screenX);
-});*/
+document.addEventListener('click', (event) => {
+    if (event.target.className === "link-anchor") {
+        let idName = (event.target.getAttribute('data-link'));
+        let newSection = document.getElementById(idName);
+        newSection.scrollIntoView({ behavior: 'smooth' });
+        console.log(newSection);
+    }
+});
