@@ -1,234 +1,239 @@
+body {
+    margin: 0;
+    width: 100vw;
+    background-color: #00050a;
+    font-size: 16px;
+}
+
+header {
+    background-image: url("../../assets/photos/Background-Image.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    margin: 0;
+    margin-left: 0;
+    width: 100vw;
+    position: fixed;
+    background-color: black;
+    justify-content: space-between;
+}
+
+#menu-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0 6px 0;
+    margin-left: 1em;
+}
+
+#logo img {
+    float: right;
+}
+
+#nav-links {
+    display: none;
+    flex-direction: column;
+    background-image: radial-gradient(rgb(70, 68, 68), rgb(78, 5, 78), black);
+    width: 20vw;
+    padding: 1em;
+    font-size: 1.1em;
+    line-height: 2em;
+    list-style: none;
+}
+
+#nav-links a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 2px black;
+}
+
+#nav-links :hover {
+    color: orange;
+}
+
+#nav-links :active {
+    color: orange;
+}
+
+#intro-text {
+    text-align: center;
+    color: white;
+}
+
+#intro-text h2 {
+    margin-top: 0;
+    padding-top: 40vh;
+    font-size: 3em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#intro-text h3 {
+    line-height: 1.5em;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trumpet-pic {
+    border-radius: 2%;
+    box-shadow: 4px 8px black;
+}
+
+.trumpets {
+    display: flex;
+    flex-direction: column;
+    height: 750px;
+    width: 25%;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    background-image: radial-gradient(#9A54B3, #342380);
+    color: white;
+    text-shadow: 1px 2px black;
+    justify-content: space-between;
+    border-radius: 2%;
+}
+
+.trumpets p {
+    line-height: 1.15em;
+}
+
+.trumpet-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+#active-state {
+    border-style: solid;
+    border-width: 2em;
+}
+
+.buy {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    padding: 1em 2em 1em 2em;
+    margin-bottom: 1em;
+    background-image: radial-gradient(#ce5e74, #e7788e);
+    border-radius: 2%;
+    box-shadow: 1px 2px black;
+    text-shadow: none;
+}
+
+.buy:hover {
+    background-image: radial-gradient(rgb(175, 173, 173), rgb(114, 112, 112));
+    color: #F4D58D;
+    box-shadow: 2px 4px black;
+}
+
+.buy:active {
+    background-image: radial-gradient(rgb(175, 173, 173), rgb(114, 112, 112));
+    color: purple;
+    transform: translateY(4px);
+    box-shadow: 2px 4px black;
+}
+
+.trumpet-type {
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 2em;
+    box-shadow: 1px 4px rgb(243, 56, 56);
+}
+
+footer {
+    width: 100vw;
+    height: 5em;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 2em;
+}
+
+.social-image {
+    height: 2em;
+    width: 2em;
+    margin-left: .25em;
+    margin-right: .25em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+}
+
+.social-link :hover {
+    border-style: solid;
+    border-color: black;
+    border-width: .05em;
+    border-radius: 25%;
+}
+
+#social-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    width: 10em;
+    padding: .25em 0 .25em 0;
+    justify-content: center;
+    margin: auto;
+    border-radius: 10%;
+}
+
+@media only screen and (max-width: 800px) {
     body {
-        margin: 0;
-        width: 100vw;
-        background-color: #00050a;
-        font-size: 16px;
+        font-size: 14px;
     }
-    
-    header {
-        background-image: url("../../assets/photos/Background-Image.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        width: 100vw;
-        height: 100vh;
-        margin-top: 0;
-        margin-left: 0;
-    }
-    
-    nav {
-        display: flex;
-        flex-direction: row;
-        top: 0;
-        margin: 0;
-        margin-left: 0;
-        width: 100vw;
-        position: fixed;
-        background-color: black;
-        justify-content: space-between;
-    }
-    
-    #menu-container {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .hamburger {
-        width: 35px;
-        height: 5px;
-        background-color: white;
-        margin: 6px 0 6px 0;
-        margin-left: 1em;
-    }
-    
-    #logo img {
-        float: right;
-    }
-    
-    #nav-links {
-        display: none;
-        flex-direction: column;
-        background-image: radial-gradient(rgb(70, 68, 68), rgb(78, 5, 78), black);
-        width: 20vw;
-        padding: 1em;
-        font-size: 1.1em;
-        line-height: 2em;
-        list-style: none;
-    }
-    
-    #nav-links a {
-        text-decoration: none;
-        color: white;
-        text-shadow: 1px 2px black;
-    }
-    
-    #nav-links :hover {
-        color: orange;
-    }
-    
-    #nav-links :active {
-        color: orange;
-    }
-    
-    #intro-text {
-        text-align: center;
-        color: white;
-    }
-    
-    #intro-text h2 {
-        margin-top: 0;
-        padding-top: 40vh;
-        font-size: 3em;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    #intro-text h3 {
-        line-height: 1.5em;
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
     .trumpet-pic {
-        border-radius: 2%;
-        box-shadow: 4px 8px black;
+        width: 12em;
+        height: 12em;
+        margin: auto;
     }
-    
     .trumpets {
-        display: flex;
-        flex-direction: column;
-        height: 750px;
-        width: 25%;
-        padding-left: 2em;
-        padding-right: 2em;
-        padding-top: 1em;
-        padding-bottom: 2em;
-        background-image: radial-gradient(#9A54B3, #342380);
-        color: white;
-        text-shadow: 1px 2px black;
-        justify-content: space-between;
-        border-radius: 2%;
+        width: 70%;
+        height: 10%;
+        margin-bottom: 2em;
     }
-    
-    .trumpets p {
-        line-height: 1.15em;
-    }
-    
     .trumpet-container {
         display: flex;
-        flex-direction: row;
-        width: 100vw;
-        height: 100%;
-        justify-content: space-evenly;
-    }
-    
-    .buy {
-        text-decoration: none;
-        color: black;
-        text-align: center;
-        padding: 1em 2em 1em 2em;
-        margin-bottom: 1em;
-        background-image: radial-gradient(#ce5e74, #e7788e);
-        border-radius: 2%;
-        box-shadow: 1px 2px black;
-        text-shadow: none;
-    }
-    
-    .buy:hover {
-        background-image: radial-gradient(rgb(175, 173, 173), rgb(114, 112, 112));
-        color: #F4D58D;
-        box-shadow: 2px 4px black;
-    }
-    
-    .buy:active {
-        background-image: radial-gradient(rgb(175, 173, 173), rgb(114, 112, 112));
-        color: purple;
-        transform: translateY(4px);
-        box-shadow: 2px 4px black;
-    }
-    
-    .trumpet-type {
-        color: white;
-        font-size: 2.5em;
-        text-align: center;
-        padding-top: 2em;
-        box-shadow: 1px 4px rgb(243, 56, 56);
-    }
-    
-    footer {
-        width: 100vw;
-        height: 5em;
-        background-color: black;
-        color: white;
-        text-align: center;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        margin-top: 2em;
-    }
-    
-    .social-image {
-        height: 2em;
-        width: 2em;
-        margin-left: .25em;
-        margin-right: .25em;
-        padding-top: .25em;
-        padding-bottom: .25em;
-    }
-    
-    .social-link :hover {
-        border-style: solid;
-        border-color: black;
-        border-width: .05em;
-        border-radius: 25%;
-    }
-    
-    #social-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: white;
-        width: 10em;
-        padding: .25em 0 .25em 0;
+        flex-direction: column;
         justify-content: center;
-        margin: auto;
-        border-radius: 10%;
+        align-items: center;
     }
-    
-    @media only screen and (max-width: 800px) {
-        body {
-            font-size: 14px;
-        }
-        .trumpet-pic {
-            width: 12em;
-            height: 12em;
-            margin: auto;
-        }
-        .trumpets {
-            width: 70%;
-            height: 10%;
-            margin-bottom: 2em;
-        }
-        .trumpet-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .trumpet-type {
-            font-size: 2em;
-        }
-        #intro-text h3 {
-            width: 70vw;
-        }
+    .trumpet-type {
+        font-size: 2em;
     }
-    
-    @media only screen and (min-width: 1300px) {
-        body {
-            font-size: 18px;
-        }
-        .trumpets {
-            width: 300px;
-            height: 850px;
-        }
+    #intro-text h3 {
+        width: 70vw;
     }
+}
+
+@media only screen and (min-width: 1300px) {
+    body {
+        font-size: 18px;
+    }
+    .trumpets {
+        width: 300px;
+        height: 850px;
+    }
+}

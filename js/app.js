@@ -33,6 +33,7 @@ menu.addEventListener('click', () => {
 
 links.addEventListener('click', () => {
     links.style.display = 'none';
+    nav.style.opacity = '1';
     i = 0;
 });
 
@@ -40,12 +41,38 @@ links.addEventListener('click', () => {
 
 const anchors = document.querySelectorAll('.link-anchor');
 
-
 document.addEventListener('click', (event) => {
     if (event.target.className === "link-anchor") {
         let idName = (event.target.getAttribute('data-link'));
         let newSection = document.getElementById(idName);
         newSection.scrollIntoView({ behavior: 'smooth' });
-        console.log(newSection);
     }
 });
+
+//code pertaining to adding an active state
+const trumpetDiv = document.getElementsByClassName('trumpet-container');
+const cards = document.getElementsByClassName("trumpets");
+
+for (let int = 0; int < cards.length; int++) {
+    cards[int].addEventListener('mouseover', (event) => {
+        let card = document.getElementsByClassName('trumpets')[int];
+        let cardAtt = document.createAttribute('id');
+        cardAtt.value = 'active-state';
+        card.setAttributeNode(cardAtt);
+        console.log(card);
+        //console.log(event);
+    });
+    cards[int].addEventListener('mouseout', () => {
+        let card = document.getElementsByClassName('trumpets')[int];
+        let cardAtt = document.createAttribute('id');
+        cardAtt.value = '';
+        card.setAttributeNode(cardAtt);
+    })
+}
+
+
+
+/*cards.addEventListener('onclick', (event) => {
+    let currentClass = event.target.getAttribute('class');
+    console.log(currentClass);
+})*/
