@@ -125,7 +125,14 @@ nav {
 
 #active-state {
     border-style: solid;
-    border-width: 2em;
+    border-width: .05em;
+    border-color: whitesmoke;
+}
+
+#selected-state {
+    background-image: radial-gradient(#9A54B3, #342380, black);
+    border-width: .05em;
+    border-color: whitesmoke;
 }
 
 .buy {
