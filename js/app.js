@@ -56,18 +56,26 @@ const cards = document.getElementsByClassName("trumpets");
 
 for (let int = 0; int < cards.length; int++) {
     let card = cards[int];
-    cards[int].addEventListener('mouseover', () => {
+    card.addEventListener('mouseover', () => {
         let cardAtt = document.createAttribute('id');
         cardAtt.value = 'active-state';
         card.setAttributeNode(cardAtt);
     });
-    cards[int].addEventListener('click', () => {
-        let cardAtt = document.createAttribute('id');
-        cardAtt.value = "selected-state";
-        card.setAttributeNode(cardAtt);
-        console.log(card);
+    card.addEventListener('click', () => {
+        let previous = document.getElementById("selected-state");
+        if (previous) {
+            previous.id = previous.id.replace("selected-state", (""));
+            let cardAtt = document.createAttribute('id');
+            cardAtt.value = "selected-state";
+            card.setAttributeNode(cardAtt);
+        } else {
+            let cardAtt = document.createAttribute('id');
+            cardAtt.value = "selected-state";
+            card.setAttributeNode(cardAtt);
+            console.log(card);
+        }
     })
-    cards[int].addEventListener('mouseout', () => {
+    card.addEventListener('mouseout', () => {
         if (card.id === "active-state") {
             card.id = card.id.replace('active-state', '');
         } else if (card.id === "selected-state") {
