@@ -88,9 +88,24 @@ for (let int = 0; int < cards.length; int++) {
     })
 }
 
+//code for hiding fixed navigation bar
 
+let scrollCount = 0;
+let newCount = 0;
 
-/*cards.addEventListener('onclick', (event) => {
-    let currentClass = event.target.getAttribute('class');
-    console.log(currentClass);
-})*/
+document.addEventListener("scroll", (event) => {
+    scrollCount += 1;
+    console.log(scrollCount);
+    setTimeout(() => {
+        if (newCount === scrollCount) {
+            let nav = document.getElementById("navbar");
+            nav.style.display = "none";
+            console.log(scrollCount);
+        } else {
+            scrollCount = newCount;
+            nav.style.display = "flex";
+            console.log(scrollCount);
+        }
+    }, 1000);
+
+});
