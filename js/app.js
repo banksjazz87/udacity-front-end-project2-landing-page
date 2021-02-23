@@ -57,9 +57,13 @@ const cards = document.getElementsByClassName("trumpets");
 for (let int = 0; int < cards.length; int++) {
     let card = cards[int];
     card.addEventListener('mouseover', () => {
-        let cardAtt = document.createAttribute('id');
-        cardAtt.value = 'active-state';
-        card.setAttributeNode(cardAtt);
+        if (card.id === 'selected-state') {
+            card.id === 'selected-state';
+        } else {
+            let cardAtt = document.createAttribute('id');
+            cardAtt.value = 'active-state';
+            card.setAttributeNode(cardAtt);
+        }
     });
     card.addEventListener('click', () => {
         let previous = document.getElementById("selected-state");

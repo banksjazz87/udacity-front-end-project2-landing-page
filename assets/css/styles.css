@@ -104,7 +104,8 @@ nav {
     padding-right: 2em;
     padding-top: 1em;
     padding-bottom: 2em;
-    background-image: radial-gradient(#9A54B3, #342380);
+    /*background-image: radial-gradient(#9A54B3, #080808);*/
+    background-image: radial-gradient(#a36fb6, #12083d);
     color: white;
     text-shadow: 1px 2px black;
     justify-content: space-between;
@@ -130,8 +131,10 @@ nav {
 }
 
 #selected-state {
-    background-image: radial-gradient(#9A54B3, #342380, black);
-    border-width: .05em;
+    background-image: radial-gradient(#9A54B3, #080808);
+    /*background-image: radial-gradient(#a36fb6, #12083d);*/
+    border-style: solid;
+    border-width: .15em;
     border-color: whitesmoke;
 }
 
