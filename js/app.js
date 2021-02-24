@@ -92,20 +92,17 @@ for (let int = 0; int < cards.length; int++) {
 
 let scrollCount = 0;
 let newCount = 0;
+let display = true;
 
 document.addEventListener("scroll", (event) => {
-    scrollCount += 1;
-    console.log(scrollCount);
+    scrollCount++;
+    nav.style.display = 'flex';
     setTimeout(() => {
-        if (newCount === scrollCount) {
-            let nav = document.getElementById("navbar");
-            nav.style.display = "none";
-            console.log(scrollCount);
+        newCount = scrollCount;
+        if (scrollCount === newCount) {
+            nav.style.display = 'none';
         } else {
-            scrollCount = newCount;
-            nav.style.display = "flex";
-            console.log(scrollCount);
+            newCount = scrollCount;
         }
-    }, 1000);
-
+    }, 5000);
 });
