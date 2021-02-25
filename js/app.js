@@ -5,6 +5,7 @@ const menu = document.getElementById("hamburger-container");
 const links = document.getElementById('nav-links');
 const nav = document.getElementById('navbar');
 
+
 let i = 0;
 
 menu.addEventListener('click', () => {
@@ -92,17 +93,39 @@ for (let int = 0; int < cards.length; int++) {
 
 let scrollCount = 0;
 let newCount = 0;
-let display = true;
+
+function scrolling() {
+    const scroll = setTimeout(() => {
+        if (scrollCount === newCount) {
+            nav.style.display = 'none';
+            console.log('none');
+        } else {
+            newCount = scrollCount;
+            console.log(scrollCount);
+        }
+    }, 5000);
+}
+
 
 document.addEventListener("scroll", (event) => {
     scrollCount++;
     nav.style.display = 'flex';
-    setTimeout(() => {
-        newCount = scrollCount;
-        if (scrollCount === newCount) {
-            nav.style.display = 'none';
-        } else {
-            newCount = scrollCount;
-        }
-    }, 5000);
+    console.log(scrollCount);
+    /* scroll = setTimeout(() => {
+         if (scrollCount === newCount) {
+             nav.style.display = 'none';
+             console.log('none');
+         } else {
+             newCount = scrollCount;
+             console.log(scrollCount);
+         }
+     }, 5000);*/
+    scrolling();
+});
+
+
+document.addEventListener('mousemove', () => {
+    nav.style.display = 'flex';
+    clearTimeout(scroll);
+    console.log("cleared?")
 });
