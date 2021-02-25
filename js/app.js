@@ -93,9 +93,11 @@ for (let int = 0; int < cards.length; int++) {
 
 let scrollCount = 0;
 let newCount = 0;
+let scroll;
 
 function scrolling() {
-    const scroll = setTimeout(() => {
+    //clearTimeout(scroll);
+    scroll = setTimeout(() => {
         if (scrollCount === newCount) {
             nav.style.display = 'none';
             console.log('none');
@@ -106,26 +108,26 @@ function scrolling() {
     }, 5000);
 }
 
-
+clearTimeout(scroll);
 document.addEventListener("scroll", (event) => {
     scrollCount++;
     nav.style.display = 'flex';
     console.log(scrollCount);
-    /* scroll = setTimeout(() => {
-         if (scrollCount === newCount) {
-             nav.style.display = 'none';
-             console.log('none');
-         } else {
-             newCount = scrollCount;
-             console.log(scrollCount);
-         }
-     }, 5000);*/
+    /*scroll = setTimeout(() => {
+        if (scrollCount === newCount) {
+            nav.style.display = 'none';
+            console.log('none');
+        } else {
+            newCount = scrollCount;
+            console.log(scrollCount);
+        }
+    }, 5000);*/
     scrolling();
 });
 
 
 document.addEventListener('mousemove', () => {
-    nav.style.display = 'flex';
     clearTimeout(scroll);
+    nav.style.display = "flex";
     console.log("cleared?")
 });
