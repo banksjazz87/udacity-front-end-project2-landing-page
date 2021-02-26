@@ -9,6 +9,7 @@ const nav = document.getElementById('navbar');
 let i = 0;
 
 menu.addEventListener('click', () => {
+    clearTimeout(stopped);
     const downIncrement = setInterval(() => {
         if (i < 100 && links.style.display === 'flex') {
             i++;
@@ -93,11 +94,18 @@ for (let int = 0; int < cards.length; int++) {
 
 let scrollCount = 0;
 let newCount = 0;
-let scroll;
 
-function scrolling() {
-    //clearTimeout(scroll);
-    scroll = setTimeout(() => {
+
+
+let stopped;
+clearTimeout(stopped);
+
+document.addEventListener("scroll", (event) => {
+    newCount = scrollCount;
+    scrollCount++;
+    //nav.style.display = 'flex';
+    console.log(scrollCount);
+    stopped = setTimeout(() => {
         if (scrollCount === newCount) {
             nav.style.display = 'none';
             console.log('none');
@@ -106,28 +114,11 @@ function scrolling() {
             console.log(scrollCount);
         }
     }, 5000);
-}
-
-clearTimeout(scroll);
-document.addEventListener("scroll", (event) => {
-    scrollCount++;
-    nav.style.display = 'flex';
-    console.log(scrollCount);
-    /*scroll = setTimeout(() => {
-        if (scrollCount === newCount) {
-            nav.style.display = 'none';
-            console.log('none');
-        } else {
-            newCount = scrollCount;
-            console.log(scrollCount);
-        }
-    }, 5000);*/
-    scrolling();
 });
 
 
-document.addEventListener('mousemove', () => {
-    clearTimeout(scroll);
+document.body.addEventListener('mousemove', () => {
+    clearTimeout(stopped);
     nav.style.display = "flex";
     console.log("cleared?")
 });
