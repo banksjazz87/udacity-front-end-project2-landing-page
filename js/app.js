@@ -9,7 +9,7 @@ const nav = document.getElementById('navbar');
 let i = 0;
 
 menu.addEventListener('click', () => {
-    clearTimeout(stopped);
+    clearInterval(scrollStopped);
     const downIncrement = setInterval(() => {
         if (i < 100 && links.style.display === 'flex') {
             i++;
@@ -97,28 +97,29 @@ let newCount = 0;
 
 
 
-let stopped;
-clearTimeout(stopped);
+let scrollStopped;
 
 document.addEventListener("scroll", (event) => {
-    newCount = scrollCount;
     scrollCount++;
-    //nav.style.display = 'flex';
+    nav.style.display = 'flex';
     console.log(scrollCount);
-    stopped = setTimeout(() => {
-        if (scrollCount === newCount) {
+    clearInterval(scrollStopped);
+    scrollStopped = setInterval(() => {
+        if (scrollCount === newCount && scrollCount > 0) {
             nav.style.display = 'none';
             console.log('none');
         } else {
             newCount = scrollCount;
             console.log(scrollCount);
         }
-    }, 5000);
+    }, 1000);
 });
 
 
 document.body.addEventListener('mousemove', () => {
-    clearTimeout(stopped);
+    clearInterval(scrollStopped);
+    scrollCount = 0;
+    newCount = 0;
     nav.style.display = "flex";
     console.log("cleared?")
 });
