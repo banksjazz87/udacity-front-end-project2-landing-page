@@ -1,7 +1,7 @@
 //function for the drop down menu
 /**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
- * returns the menu, unorder list, for the user to select from .
+ * @returns the menu, unorder list, for the user to select from .
  */
 
 const menu = document.getElementById("hamburger-container");
@@ -37,7 +37,7 @@ menu.addEventListener('click', () => {
 
 /**
  * @description Function pertaining to what happens when Item is clicked in the dropdown menu. 
- * 
+ * @returns the style for the dropdown menu, to 'none' and the opacity for the navbar changes back to 1.
  */
 
 
