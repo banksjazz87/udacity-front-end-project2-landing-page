@@ -93,7 +93,6 @@ for (let int = 0; int < cards.length; int++) {
             let cardAtt = document.createAttribute('id');
             cardAtt.value = "selected-state";
             card.setAttributeNode(cardAtt);
-            console.log(card);
         }
     })
     card.addEventListener('mouseout', () => {
