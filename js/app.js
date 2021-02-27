@@ -1,15 +1,19 @@
 //function for the drop down menu
-
+/**
+ * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
+ * returns the menu, unorder list, for the user to select from .
+ */
 
 const menu = document.getElementById("hamburger-container");
 const links = document.getElementById('nav-links');
 const nav = document.getElementById('navbar');
 
-
 let i = 0;
 
 menu.addEventListener('click', () => {
     clearInterval(scrollStopped);
+    scrollCount = 0;
+    newCount = 0;
     const downIncrement = setInterval(() => {
         if (i < 100 && links.style.display === 'flex') {
             i++;
@@ -31,7 +35,11 @@ menu.addEventListener('click', () => {
     }
 });
 
-//Function pertaining to what happens when Item is clicked in the dropdown menu
+/**
+ * @description Function pertaining to what happens when Item is clicked in the dropdown menu. 
+ * 
+ */
+
 
 links.addEventListener('click', () => {
     links.style.display = 'none';
@@ -39,7 +47,11 @@ links.addEventListener('click', () => {
     i = 0;
 });
 
-//code pertaining to the scroll feature after clicking on a link
+/**
+ * @description this code pertains to how the page is scrolled to the next section, after clicking a menu item.
+ * @param {string} event
+ * @returns a smooth scrolling feature to the link that was clicked.
+ */
 
 const anchors = document.querySelectorAll('.link-anchor');
 
@@ -51,10 +63,13 @@ document.addEventListener('click', (event) => {
     }
 });
 
-//code pertaining to adding an active state
+/**
+ * @description Adds an active state to an element, whether the user is hovering over it or has selected it.
+ * @returns a hovered state, highlighted outer border, and a selected state, which darkens the background of the selected element.
+ */
+
 const trumpetDiv = document.getElementsByClassName('trumpet-container');
 const cards = document.getElementsByClassName("trumpets");
-
 
 for (let int = 0; int < cards.length; int++) {
     let card = cards[int];
@@ -90,31 +105,34 @@ for (let int = 0; int < cards.length; int++) {
     })
 }
 
-//code for hiding fixed navigation bar
+/**
+ * @description Code for hiding the fixed navigation bar, after the user has stopped scrolling for two seconds.
+ * @param event
+ * @returns the navigation bar disappearing after two seconds of inactivity.
+ */
+
 
 let scrollCount = 0;
 let newCount = 0;
-
-
-
 let scrollStopped;
 
 document.addEventListener("scroll", (event) => {
     scrollCount++;
     nav.style.display = 'flex';
-    console.log(scrollCount);
     clearInterval(scrollStopped);
     scrollStopped = setInterval(() => {
         if (scrollCount === newCount && scrollCount > 0) {
             nav.style.display = 'none';
-            console.log('none');
         } else {
             newCount = scrollCount;
-            console.log(scrollCount);
         }
-    }, 1000);
+    }, 2000);
 });
 
+/**
+ * @description clears the setInterval function, from the scrolling event,  when the user moves the mouse.
+ * @returns a stopped clearInterval function.
+ */
 
 document.body.addEventListener('mousemove', () => {
     clearInterval(scrollStopped);
