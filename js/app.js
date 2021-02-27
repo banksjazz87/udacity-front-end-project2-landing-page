@@ -129,14 +129,19 @@ document.addEventListener("scroll", (event) => {
 });
 
 /**
- * @description clears the setInterval function, from the scrolling event,  when the user moves the mouse.
- * @returns a stopped clearInterval function.
+ * @description clears the setInterval function, from the scrolling event,  when the user moves the mouse and then re-establishes the interval used in the scroll event.
+ * @returns a clearInterval function, that then returns the interval that has been cleared, once there has been 2 seconds of in-activity.
  */
 
 document.body.addEventListener('mousemove', () => {
     clearInterval(scrollStopped);
-    scrollCount = 0;
-    newCount = 0;
+    scrollCount++;
     nav.style.display = "flex";
-    console.log("cleared?")
+    scrollStopped = setInterval(() => {
+        if (scrollCount === newCount && scrollCount > 0) {
+            nav.style.display = 'none';
+        } else {
+            newCount = scrollCount;
+        }
+    }, 2000);
 });

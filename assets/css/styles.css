@@ -104,7 +104,6 @@ nav {
     padding-right: 2em;
     padding-top: 1em;
     padding-bottom: 2em;
-    /*background-image: radial-gradient(#9A54B3, #080808);*/
     background-image: radial-gradient(#a36fb6, #12083d);
     color: white;
     text-shadow: 1px 2px black;
@@ -132,7 +131,6 @@ nav {
 
 #selected-state {
     background-image: radial-gradient(#9A54B3, #080808);
-    /*background-image: radial-gradient(#a36fb6, #12083d);*/
     border-style: solid;
     border-width: .15em;
     border-color: whitesmoke;
@@ -213,6 +211,38 @@ footer {
 @media only screen and (max-width: 800px) {
     body {
         font-size: 14px;
+    }
+    .trumpet-pic {
+        width: 12em;
+        height: 12em;
+        margin: auto;
+    }
+    .trumpets {
+        width: 70%;
+        height: 10%;
+        margin-bottom: 2em;
+    }
+    .trumpet-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .trumpet-type {
+        font-size: 2em;
+    }
+    #intro-text h3 {
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    body {
+        font-size: 14px;
+    }
+    .hamburger {
+        width: 24px;
+        margin-left: 6px;
     }
     .trumpet-pic {
         width: 12em;
