@@ -1,25 +1,36 @@
 /**
  * @description this is code pertaining to the menu list items being created dynamically.
- * @param {array} strings
+ * @param {string, array} you will need to supply the parent element ID along with an array of strings that you would like to be made into list items and anchor tags.
  * @returns list and anchor elements for the menu.
  */
 
 const listParent = document.getElementById('nav-links');
-
 const listItems = ["Beginner Trumpets", "Intermediate Trumpets", "Professional Trumpets", "Artist Series Trumpets"];
 
+const createListItems = (parent, arr) => {
+    for (var j = 0; j < arr.length; j++) {
+        let navElement = document.createElement('li');
+        let navLink = document.createElement('a');
+        navLink.textContent = arr[j];
+        navElement.appendChild(navLink);
+        parent.appendChild(navElement);
+    }
+};
 
-for (var j = 0; j < listItems.length; j++) {
-    let navElement = document.createElement('li');
-    let navLink = document.createElement('a');
-    navLink.textContent = listItems[j];
-    navElement.appendChild(navLink);
-    listParent.appendChild(navElement);
+createListItems(listParent, listItems);
+
+/**
+ * @description this function will create a class for the list items and anchor tags.
+ * @returns class attributes and values for the list item and anchor elements.
+ */
+
+const createClass = () => {
+    for (var j = 0; j < listParent.children.length; j++) {
+        console.log('cat');
+    }
 }
 
-
-
-
+createClass();
 
 /**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
@@ -37,7 +48,7 @@ menu.addEventListener('click', () => {
     scrollCount = 0;
     newCount = 0;
     const downIncrement = setInterval(() => {
-        if (i < 100 && links.style.display === 'flex') {
+        if (i < 30 && links.style.display === 'flex') {
             i++;
             links.style.height = i + 'vh';
         } else {
