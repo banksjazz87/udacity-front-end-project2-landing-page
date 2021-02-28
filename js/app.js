@@ -1,4 +1,26 @@
-//function for the drop down menu
+/**
+ * @description this is code pertaining to the menu list items being created dynamically.
+ * @param {array} strings
+ * @returns list and anchor elements for the menu.
+ */
+
+const listParent = document.getElementById('nav-links');
+
+const listItems = ["Beginner Trumpets", "Intermediate Trumpets", "Professional Trumpets", "Artist Series Trumpets"];
+
+
+for (var j = 0; j < listItems.length; j++) {
+    let navElement = document.createElement('li');
+    let navLink = document.createElement('a');
+    navLink.textContent = listItems[j];
+    navElement.appendChild(navLink);
+    listParent.appendChild(navElement);
+}
+
+
+
+
+
 /**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
  * @returns the menu, unorder list, for the user to select from .
