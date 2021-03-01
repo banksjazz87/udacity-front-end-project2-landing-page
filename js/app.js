@@ -5,7 +5,7 @@
  */
 
 const listParent = document.getElementById('nav-links');
-const listItems = ["Beginner Trumpets", "Intermediate Trumpets", "Professional Trumpets", "Artist Series Trumpets"];
+const listItems = ["Beginner", "Intermediate", "Professional", "Artist"];
 
 const createListItems = (parent, arr) => {
     for (var j = 0; j < arr.length; j++) {
@@ -20,17 +20,43 @@ const createListItems = (parent, arr) => {
 createListItems(listParent, listItems);
 
 /**
- * @description this function will create a class for the list items and anchor tags.
- * @returns class attributes and values for the list item and anchor elements.
+ * @description this function will create a class for the list items.
+ * @returns class attributes and values for the list item.
  */
 
-const createClass = () => {
-    for (var j = 0; j < listParent.children.length; j++) {
-        console.log('cat');
+const listClass = () => {
+    let listItem = listParent.children;
+    for (var j = 0; j < listItem.length; j++) {
+        let listClass = document.createAttribute('class');
+        listClass.value = 'menu-item';
+        let linkClass = document.createAttribute('class');
+        linkClass.value = "link";
+        listItem[j].setAttributeNode(listClass);
     }
 }
 
-createClass();
+listClass();
+
+/**
+ * @description this function will create a class and href attribute and value for the anchor tags in the menu.
+ * @returns class and href values and attributes for the anchor tags in the menu.
+ */
+
+const menuListItems = document.getElementsByClassName('menu-item');
+
+const anchorClass = () => {
+    for (j = 0; j < menuListItems.length; j++) {
+        let anchorItem = menuListItems[j].children;
+        let anchorClass = document.createAttribute('class');
+        let anchorHref = document.createAttribute('href');
+        anchorClass.value = 'link';
+        anchorHref.value = "#" + menuListItems[j].textContent.toLowerCase();
+        anchorItem[0].setAttributeNode(anchorClass);
+        anchorItem[0].setAttributeNode(anchorHref);
+    }
+}
+
+anchorClass();
 
 /**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
