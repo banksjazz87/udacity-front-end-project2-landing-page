@@ -115,8 +115,8 @@ links.addEventListener('click', () => {
 const anchors = document.querySelectorAll('.link-anchor');
 
 document.addEventListener('click', (event) => {
-    if (event.target.className === "link-anchor") {
-        let idName = (event.target.getAttribute('data-link'));
+    if (event.target.className === "link") {
+        let idName = (event.target.getAttribute('href'));
         let newSection = document.getElementById(idName);
         newSection.scrollIntoView({ behavior: 'smooth' });
     }
