@@ -10,9 +10,7 @@ const listItems = ["Beginner", "Intermediate", "Professional", "Artist"];
 const createListItems = (parent, arr) => {
     for (var j = 0; j < arr.length; j++) {
         let navElement = document.createElement('li');
-        let navLink = document.createElement('a');
-        navLink.textContent = arr[j];
-        navElement.appendChild(navLink);
+        navElement.textContent = arr[j];
         parent.appendChild(navElement);
     }
 };
@@ -29,34 +27,11 @@ const listClass = () => {
     for (var j = 0; j < listItem.length; j++) {
         let listClass = document.createAttribute('class');
         listClass.value = 'menu-item';
-        let linkClass = document.createAttribute('class');
-        linkClass.value = "link";
         listItem[j].setAttributeNode(listClass);
     }
 }
 
 listClass();
-
-/**
- * @description this function will create a class and href attribute and value for the anchor tags in the menu.
- * @returns class and href values and attributes for the anchor tags in the menu.
- */
-
-const menuListItems = document.getElementsByClassName('menu-item');
-
-const anchorClass = () => {
-    for (j = 0; j < menuListItems.length; j++) {
-        let anchorItem = menuListItems[j].children;
-        let anchorClass = document.createAttribute('class');
-        let anchorHref = document.createAttribute('href');
-        anchorClass.value = 'link';
-        anchorHref.value = "#" + menuListItems[j].textContent.toLowerCase();
-        anchorItem[0].setAttributeNode(anchorClass);
-        anchorItem[0].setAttributeNode(anchorHref);
-    }
-}
-
-anchorClass();
 
 /**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
@@ -112,15 +87,19 @@ links.addEventListener('click', () => {
  * @returns a smooth scrolling feature to the link that was clicked.
  */
 
-const anchors = document.querySelectorAll('.link-anchor');
+const menuListItems = document.getElementsByClassName('menu-item');
 
-document.addEventListener('click', (event) => {
-    if (event.target.className === "link") {
-        let idName = (event.target.getAttribute('href'));
-        let newSection = document.getElementById(idName);
-        newSection.scrollIntoView({ behavior: 'smooth' });
+const smoothScroll = () => {
+    for (j = 0; j < menuListItems.length; j++) {
+        menuListItems[j].addEventListener('click', (event) => {
+            let targetId = event.target.textContent.toLowerCase();
+            let targetSection = document.getElementById(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
     }
-});
+}
+
+smoothScroll();
 
 /**
  * @description Adds an active state to an element, whether the user is hovering over it or has selected it.
