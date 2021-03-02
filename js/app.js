@@ -95,11 +95,35 @@ const smoothScroll = () => {
             let targetId = event.target.textContent.toLowerCase();
             let targetSection = document.getElementById(targetId);
             targetSection.scrollIntoView({ behavior: 'smooth' });
+            //event.target.className = "active-menu-item";
         });
     }
 }
 
 smoothScroll();
+
+/**
+ * @description this code creates an active state for the elements as they're clicked
+ * @param {string} event
+ * @returns an active-class value.
+ */
+
+const activeState = (event) => {
+    for (j = 0; j < menuListItems.length; j++) {
+        menuListItems[j].addEventListener("click", (event) => {
+            let previousActive = document.getElementsByClassName('active-menu-item');
+            if (previousActive) {
+                previousActive = previousActive.class.replace("active-menu-item", "poop");
+                event.target.className = "active-menu-item";
+            } else {
+                event.target.className = "active-menu-item";
+            }
+            console.log(previousActive);
+        });
+    }
+}
+
+activeState();
 
 /**
  * @description Adds an active state to an element, whether the user is hovering over it or has selected it.
