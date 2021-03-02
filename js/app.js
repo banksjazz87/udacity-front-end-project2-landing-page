@@ -108,22 +108,28 @@ smoothScroll();
  * @returns an active-class value.
  */
 
+
 const activeState = (event) => {
     for (j = 0; j < menuListItems.length; j++) {
-        menuListItems[j].addEventListener("click", (event) => {
+        let item = menuListItems[j];
+        item.addEventListener("click", (event) => {
             let previousActive = document.getElementsByClassName('active-menu-item');
-            if (previousActive) {
-                previousActive = previousActive.class.replace("active-menu-item", "poop");
+            if (previousActive.length > 0) {
                 event.target.className = "active-menu-item";
+                console.log('true');
             } else {
                 event.target.className = "active-menu-item";
+                console.log("false");
             }
-            console.log(previousActive);
         });
     }
 }
 
 activeState();
+
+/*const checkForActiveState = () => {
+    console.log(document.getElementsByClassName('active-menu-item'));
+}*/
 
 /**
  * @description Adds an active state to an element, whether the user is hovering over it or has selected it.
