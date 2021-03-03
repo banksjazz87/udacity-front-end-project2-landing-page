@@ -49,7 +49,7 @@ menu.addEventListener('click', () => {
     scrollCount = 0;
     newCount = 0;
     const downIncrement = setInterval(() => {
-        if (i < 30 && links.style.display === 'flex') {
+        if (i < 10 && links.style.display === 'flex') {
             i++;
             links.style.height = i + 'vh';
         } else {
@@ -70,18 +70,6 @@ menu.addEventListener('click', () => {
 });
 
 /**
- * @description Function pertaining to what happens when Item is clicked in the dropdown menu. 
- * @returns the style for the dropdown menu, to 'none' and the opacity for the navbar changes back to 1.
- */
-
-
-links.addEventListener('click', () => {
-    links.style.display = 'none';
-    nav.style.opacity = '1';
-    i = 0;
-});
-
-/**
  * @description this code pertains to how the page is scrolled to the next section, after clicking a menu item.
  * @param {string} event
  * @returns a smooth scrolling feature to the link that was clicked.
@@ -95,7 +83,6 @@ const smoothScroll = () => {
             let targetId = event.target.textContent.toLowerCase();
             let targetSection = document.getElementById(targetId);
             targetSection.scrollIntoView({ behavior: 'smooth' });
-            //event.target.className = "active-menu-item";
         });
     }
 }
@@ -111,25 +98,17 @@ smoothScroll();
 
 const activeState = (event) => {
     for (j = 0; j < menuListItems.length; j++) {
-        let item = menuListItems[j];
-        item.addEventListener("click", (event) => {
-            let previousActive = document.getElementsByClassName('active-menu-item');
-            if (previousActive.length > 0) {
-                event.target.className = "active-menu-item";
-                console.log('true');
-            } else {
-                event.target.className = "active-menu-item";
-                console.log("false");
+        menuListItems[j].addEventListener("click", (event) => {
+            if (document.querySelector(".active-menu-item")) {
+                let prevActive = document.querySelector(".active-menu-item");
+                prevActive.className = "menu-item"
             }
+            event.target.className = "active-menu-item";
         });
     }
 }
 
 activeState();
-
-/*const checkForActiveState = () => {
-    console.log(document.getElementsByClassName('active-menu-item'));
-}*/
 
 /**
  * @description Adds an active state to an element, whether the user is hovering over it or has selected it.
@@ -213,3 +192,19 @@ document.body.addEventListener('mousemove', () => {
         }
     }, 2000);
 });
+
+/**
+ * @description this will determine what the active state should be base on the user,s current location on the page.
+ * @returns updated active state.
+ */
+
+const sections = document.querySelectorAll('section');
+//let sectionStart;
+for (var j = 0; j < sections.length; j++) {
+    let sectionStart = [];
+    let sectionRect = sections[j].getBoundingClientRect();
+    let sectionKey = sections[j].textContent;
+    sectionStart.push(sectionRect.top);
+    console.log(sectionStart);
+}
+//console.log(sectionStart);
