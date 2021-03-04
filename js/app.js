@@ -49,7 +49,7 @@ menu.addEventListener('click', () => {
     scrollCount = 0;
     newCount = 0;
     const downIncrement = setInterval(() => {
-        if (i < 10 && links.style.display === 'flex') {
+        if (i < 5 && links.style.display === 'flex') {
             i++;
             links.style.height = i + 'vh';
         } else {
@@ -209,12 +209,15 @@ document.body.addEventListener('mousemove', () => {
 const sections = document.querySelectorAll('section');
 const winHeight = window.innerHeight;
 
+
 window.addEventListener('scroll', () => {
+
     activeTest();
     for (var j = 0; j < sections.length; j++) {
         let top = sections[j].getBoundingClientRect().top;
         let bottom = sections[j].getBoundingClientRect().bottom;
-        if (top < 10 && bottom > 0) {
+
+        if (top <= winHeight / 4 && bottom > winHeight / 4) {
             menuListItems[j].className = "active-menu-item";
         }
     }
