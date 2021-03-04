@@ -90,19 +90,27 @@ const smoothScroll = () => {
 smoothScroll();
 
 /**
- * @description this code creates an active state for the elements as they're clicked
- * @param {string} event
- * @returns an active-class value.
+ * @description this is a function to determine if there is a current active state.
+ *  @returns cancels out the previous active state, for the list item class.
  */
+
+const activeTest = () => {
+        if (document.querySelector('.active-menu-item')) {
+            let prevActive = document.querySelector(".active-menu-item");
+            prevActive.className = "menu-item";
+        }
+    }
+    /**
+     * @description this code creates an active state for the elements as they're clicked
+     * @param {string} event
+     * @returns an active-class value.
+     */
 
 
 const activeState = (event) => {
     for (j = 0; j < menuListItems.length; j++) {
         menuListItems[j].addEventListener("click", (event) => {
-            if (document.querySelector(".active-menu-item")) {
-                let prevActive = document.querySelector(".active-menu-item");
-                prevActive.className = "menu-item"
-            }
+            activeTest();
             event.target.className = "active-menu-item";
         });
     }
@@ -199,12 +207,15 @@ document.body.addEventListener('mousemove', () => {
  */
 
 const sections = document.querySelectorAll('section');
-//let sectionStart;
-for (var j = 0; j < sections.length; j++) {
-    let sectionStart = [];
-    let sectionRect = sections[j].getBoundingClientRect();
-    let sectionKey = sections[j].textContent;
-    sectionStart.push(sectionRect.top);
-    console.log(sectionStart);
-}
-//console.log(sectionStart);
+const winHeight = window.innerHeight;
+
+window.addEventListener('scroll', () => {
+    activeTest();
+    for (var j = 0; j < sections.length; j++) {
+        let top = sections[j].getBoundingClientRect().top;
+        let bottom = sections[j].getBoundingClientRect().bottom;
+        if (top < 10 && bottom > 0) {
+            menuListItems[j].className = "active-menu-item";
+        }
+    }
+});
