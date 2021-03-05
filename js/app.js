@@ -208,17 +208,19 @@ document.body.addEventListener('mousemove', () => {
 
 const sections = document.querySelectorAll('section');
 const winHeight = window.innerHeight;
-
+let delay;
 
 window.addEventListener('scroll', () => {
+    clearInterval(delay);
+    delay = setInterval(() => {
+        activeTest();
+        for (var j = 0; j < sections.length; j++) {
+            let top = sections[j].getBoundingClientRect().top;
+            let bottom = sections[j].getBoundingClientRect().bottom;
 
-    activeTest();
-    for (var j = 0; j < sections.length; j++) {
-        let top = sections[j].getBoundingClientRect().top;
-        let bottom = sections[j].getBoundingClientRect().bottom;
-
-        if (top <= winHeight / 4 && bottom > winHeight / 4) {
-            menuListItems[j].className = "active-menu-item";
+            if (top <= winHeight / 4 && bottom > winHeight / 4) {
+                menuListItems[j].className = "active-menu-item";
+            }
         }
-    }
+    }, 50);
 });
