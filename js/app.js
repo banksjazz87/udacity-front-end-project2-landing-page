@@ -119,8 +119,8 @@ const activeState = (event) => {
 activeState();
 
 /**
- * @description Adds an active state to an element, whether the user is hovering over it or has selected it.
- * @returns a hovered state, highlighted outer border, and a selected state, which darkens the background of the selected element.
+ * @description Adds an active state to an element, whether the user is hovering over it.
+ * @returns a hovered state, highlighted outer border.
  */
 
 const trumpetDiv = document.getElementsByClassName('trumpet-container');
@@ -137,19 +137,6 @@ for (let int = 0; int < cards.length; int++) {
             card.setAttributeNode(cardAtt);
         }
     });
-    card.addEventListener('click', () => {
-        let previous = document.getElementById("selected-state");
-        if (previous) {
-            previous.id = previous.id.replace("selected-state", (""));
-            let cardAtt = document.createAttribute('id');
-            cardAtt.value = "selected-state";
-            card.setAttributeNode(cardAtt);
-        } else {
-            let cardAtt = document.createAttribute('id');
-            cardAtt.value = "selected-state";
-            card.setAttributeNode(cardAtt);
-        }
-    })
     card.addEventListener('mouseout', () => {
         if (card.id === "active-state") {
             card.id = card.id.replace('active-state', '');
@@ -202,13 +189,15 @@ document.body.addEventListener('mousemove', () => {
 });
 
 /**
- * @description this will determine what the active state should be base on the user,s current location on the page.
+ * @description this will determine what the active state should be, based on the user's current location on the page, and also creates a delay between renderings to factor in the scrollIntoView() event.
  * @returns updated active state.
  */
 
 const sections = document.querySelectorAll('section');
 const winHeight = window.innerHeight;
 let delay;
+const activeSection = document.createAttribute('class');
+activeSection.value = "active-section";
 
 window.addEventListener('scroll', () => {
     clearInterval(delay);
@@ -220,7 +209,8 @@ window.addEventListener('scroll', () => {
 
             if (top <= winHeight / 4 && bottom > winHeight / 4) {
                 menuListItems[j].className = "active-menu-item";
+                sections[j].setAttributeNode(activeSection);
             }
         }
-    }, 50);
+    }, 100);
 });
