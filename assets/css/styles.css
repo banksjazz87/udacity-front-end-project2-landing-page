@@ -83,7 +83,6 @@ nav {
 }
 
 #nav-links li:hover {
-    color: orange;
     cursor: pointer;
 }
 
@@ -231,6 +230,18 @@ footer {
     body {
         font-size: 14px;
     }
+    #nav-links {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    #nav-links li {
+        text-decoration: none;
+        color: white;
+        text-shadow: 1px 2px black;
+        margin-right: .25em;
+    }
     .trumpet-pic {
         width: 12em;
         height: 12em;
@@ -262,6 +273,19 @@ footer {
     .hamburger {
         width: 24px;
         margin-left: 6px;
+    }
+    #nav-links {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    #nav-links li {
+        text-decoration: none;
+        color: white;
+        text-shadow: 1px 2px black;
+        margin-right: .25em;
+        font-size: 12px;
     }
     .trumpet-pic {
         width: 12em;

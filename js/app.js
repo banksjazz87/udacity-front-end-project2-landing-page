@@ -205,7 +205,7 @@ window.addEventListener('scroll', () => {
     clearInterval(delay);
     delay = setInterval(() => {
         removeActive(".active-menu-item");
-        removeActive(".active-section")
+        removeActive(".active-section");
         for (var j = 0; j < sections.length; j++) {
             let top = sections[j].getBoundingClientRect().top;
             let bottom = sections[j].getBoundingClientRect().bottom;
