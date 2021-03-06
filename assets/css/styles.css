@@ -60,13 +60,13 @@ nav {
     list-style: none;
 }
 
-.menu-item {
+#nav-links li {
     text-decoration: none;
     color: white;
     text-shadow: 1px 2px black;
 }
 
-.active-menu-item {
+#nav-links .active-menu-item {
     color: white;
     background-color: rgb(243, 101, 66);
     padding: 0em 1em 0em 1em;
@@ -74,12 +74,20 @@ nav {
     margin: 0;
 }
 
-.menu-item:hover {
+#nav-links .active-menu-item:hover {
+    color: white;
+    background-color: rgb(243, 101, 66);
+    padding: 0em 1em 0em 1em;
+    text-shadow: 1px 2px black;
+    margin: 0;
+}
+
+#nav-links li:hover {
     color: orange;
     cursor: pointer;
 }
 
-.menu-item:active {
+#nav-links li:active {
     color: white;
     background-color: rgb(243, 101, 66);
     padding: 0em 1em 0em 1em;

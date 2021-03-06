@@ -22,7 +22,7 @@ createListItems(listParent, listItems);
  * @returns class attributes and values for the list item.
  */
 
-const listClass = () => {
+/*const listClass = () => {
     let listItem = listParent.children;
     for (var j = 0; j < listItem.length; j++) {
         let listClass = document.createAttribute('class');
@@ -31,7 +31,7 @@ const listClass = () => {
     }
 }
 
-listClass();
+listClass();*/
 
 /**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
@@ -39,7 +39,7 @@ listClass();
  */
 
 const menu = document.getElementById("hamburger-container");
-const links = document.getElementById('nav-links');
+//const links = document.getElementById('nav-links');
 const nav = document.getElementById('navbar');
 
 let i = 0;
@@ -49,20 +49,20 @@ menu.addEventListener('click', () => {
     scrollCount = 0;
     newCount = 0;
     const downIncrement = setInterval(() => {
-        if (i < 5 && links.style.display === 'flex') {
+        if (i < 5 && listParent.style.display === 'flex') {
             i++;
-            links.style.height = i + 'vh';
+            listParent.style.height = i + 'vh';
         } else {
             clearInterval(downIncrement);
         }
     }, 10);
 
-    if (links.style.display === 'none') {
-        links.style = "display: flex; height: 0vh;opacity: 1;";
+    if (listParent.style.display === 'none') {
+        listParent.style = "display: flex; height: 0vh;opacity: 1;";
         nav.style.opacity = '.9';
     } else {
         setTimeout(() => {
-            links.style.display = 'none';
+            listParent.style.display = 'none';
             nav.style.opacity = '1';
             i = 0;
         }, 200);
@@ -75,11 +75,9 @@ menu.addEventListener('click', () => {
  * @returns a smooth scrolling feature to the link that was clicked.
  */
 
-const menuListItems = document.getElementsByClassName('menu-item');
-
 const smoothScroll = () => {
-    for (j = 0; j < menuListItems.length; j++) {
-        menuListItems[j].addEventListener('click', (event) => {
+    for (j = 0; j < listParent.children.length; j++) {
+        listParent.children[j].addEventListener('click', (event) => {
             let targetId = event.target.textContent.toLowerCase();
             let targetSection = document.getElementById(targetId);
             targetSection.scrollIntoView({ behavior: 'smooth' });
@@ -91,27 +89,31 @@ smoothScroll();
 
 /**
  * @description this is a function to determine if there is a current active state.
+ * @param {string} previous class value of active state.
  *  @returns cancels out the previous active state, for the list item class.
  */
 
-const activeTest = () => {
-        if (document.querySelector('.active-menu-item')) {
-            let prevActive = document.querySelector(".active-menu-item");
-            prevActive.className = "menu-item";
-        }
+const removeActive = (previous) => {
+    if (document.querySelector(previous)) {
+        let prevActive = document.querySelector(previous);
+        prevActive.removeAttribute('class');
     }
-    /**
-     * @description this code creates an active state for the elements as they're clicked
-     * @param {string} event
-     * @returns an active-class value.
-     */
+}
 
+/**
+ * @description this code creates an active state for the elements as they're clicked
+ * @param {string} event
+ * @returns an active-class value.
+ */
+
+const activeList = document.createAttribute("class");
+activeList.value = "active-menu-item";
 
 const activeState = (event) => {
-    for (j = 0; j < menuListItems.length; j++) {
-        menuListItems[j].addEventListener("click", (event) => {
-            activeTest();
-            event.target.className = "active-menu-item";
+    for (j = 0; j < listParent.children.length; j++) {
+        listParent.children[j].addEventListener("click", (event) => {
+            removeActive(".active-menu-item");
+            event.target.setAttributeNode(activeList);
         });
     }
 }
@@ -202,13 +204,14 @@ activeSection.value = "active-section";
 window.addEventListener('scroll', () => {
     clearInterval(delay);
     delay = setInterval(() => {
-        activeTest();
+        removeActive(".active-menu-item");
+        removeActive(".active-section")
         for (var j = 0; j < sections.length; j++) {
             let top = sections[j].getBoundingClientRect().top;
             let bottom = sections[j].getBoundingClientRect().bottom;
 
             if (top <= winHeight / 4 && bottom > winHeight / 4) {
-                menuListItems[j].className = "active-menu-item";
+                listParent.children[j].setAttributeNode(activeList);
                 sections[j].setAttributeNode(activeSection);
             }
         }
