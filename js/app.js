@@ -18,28 +18,11 @@ const createListItems = (parent, arr) => {
 createListItems(listParent, listItems);
 
 /**
- * @description this function will create a class for the list items.
- * @returns class attributes and values for the list item.
- */
-
-/*const listClass = () => {
-    let listItem = listParent.children;
-    for (var j = 0; j < listItem.length; j++) {
-        let listClass = document.createAttribute('class');
-        listClass.value = 'menu-item';
-        listItem[j].setAttributeNode(listClass);
-    }
-}
-
-listClass();*/
-
-/**
  * @description this is an event listener, for a click event on the 'hamburger' dropdown menu
  * @returns the menu, unorder list, for the user to select from .
  */
 
 const menu = document.getElementById("hamburger-container");
-//const links = document.getElementById('nav-links');
 const nav = document.getElementById('navbar');
 
 let i = 0;
@@ -131,19 +114,13 @@ const cards = document.getElementsByClassName("trumpets");
 for (let int = 0; int < cards.length; int++) {
     let card = cards[int];
     card.addEventListener('mouseover', () => {
-        if (card.id === 'selected-state') {
-            card.id === 'selected-state';
-        } else {
-            let cardAtt = document.createAttribute('id');
-            cardAtt.value = 'active-state';
-            card.setAttributeNode(cardAtt);
-        }
+        let cardAtt = document.createAttribute('id');
+        cardAtt.value = 'active-state';
+        card.setAttributeNode(cardAtt);
     });
     card.addEventListener('mouseout', () => {
         if (card.id === "active-state") {
             card.id = card.id.replace('active-state', '');
-        } else if (card.id === "selected-state") {
-            card.id = "selected-state";
         }
     })
 }
@@ -153,7 +130,6 @@ for (let int = 0; int < cards.length; int++) {
  * @param event
  * @returns the navigation bar disappearing after two seconds of inactivity.
  */
-
 
 let scrollCount = 0;
 let newCount = 0;

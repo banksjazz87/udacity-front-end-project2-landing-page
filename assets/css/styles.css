@@ -54,7 +54,6 @@ nav {
     justify-content: space-evenly;
     background-image: radial-gradient(rgb(70, 68, 68), rgb(78, 5, 78), black);
     width: 100vw;
-    /*padding: 1em;*/
     font-size: 1.1em;
     line-height: 2em;
     list-style: none;
@@ -203,14 +202,13 @@ footer {
     width: 2em;
     margin-left: .25em;
     margin-right: .25em;
-    padding-top: .25em;
-    padding-bottom: .25em;
+    padding: 0;
 }
 
 .social-link :hover {
     border-style: solid;
-    border-color: black;
-    border-width: .05em;
+    border-color: rgb(95, 93, 93);
+    border-width: .15em;
     border-radius: 25%;
 }
 
@@ -241,6 +239,20 @@ footer {
         color: white;
         text-shadow: 1px 2px black;
         margin-right: .25em;
+    }
+    #nav-links .active-menu-item {
+        color: white;
+        background-color: rgb(243, 101, 66);
+        padding: 0em .1em 0em .1em;
+        text-shadow: 1px 2px black;
+        margin: 0;
+    }
+    #nav-links .active-menu-item:hover {
+        color: white;
+        background-color: rgb(243, 101, 66);
+        padding: 0em .1em 0em .1em;
+        text-shadow: 1px 2px black;
+        margin: 0;
     }
     .trumpet-pic {
         width: 12em;
@@ -284,7 +296,7 @@ footer {
         text-decoration: none;
         color: white;
         text-shadow: 1px 2px black;
-        margin-right: .25em;
+        margin-right: .45em;
         font-size: 12px;
     }
     .trumpet-pic {
