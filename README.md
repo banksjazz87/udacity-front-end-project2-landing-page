@@ -10,6 +10,18 @@ all of the links work and you can be directed to an active website to purchase t
 * Active states, both while hovering and clicking on items, the section elements are responsive.
 * After initially scrolling and then more than 2 seconds of inactivity, the navigation bar disappears.
 
+## How to run the project
+* Import the repository into your coding editor of choice.
+* Launch the index.html page in your browser.
+
+## References
+* usa.yamaha.com
+* wwbw.com
+* amazon.com
+
+## Dependencies 
+* No outside dependencies are needed to run this project.
+
 ### Summary
 Enjoy this landing page, and if you have any thoughts or concerns on how to make it bettter,
 shoot me a pull request.
